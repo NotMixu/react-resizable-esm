@@ -30,9 +30,9 @@
 #### Breaking
 
 - 🐛 Bugfix: Fixed handling of the `nodeRef` that needs to be passed to `<DraggableCore>` to avoid use of ReactDOM. This means that vanilla usage of `react-resizable` no longer requires ReactDOM. No code changes are needed in the usual case, except:
-  * React `>= 16.3` is required due to use of `React.createRef()`, and
-  * The `handle` prop now sends a `ReactRef<HTMLElement>` as its second argument and expects it to be used on your returned component.
-    * If you do not attach the `ref`, you will receive the following error: `"<DraggableCore> not mounted on DragStart!"` This is due to the ref being present but not attached to any node.
+  - React `>= 16.3` is required due to use of `React.createRef()`, and
+  - The `handle` prop now sends a `ReactRef<HTMLElement>` as its second argument and expects it to be used on your returned component.
+    - If you do not attach the `ref`, you will receive the following error: `"<DraggableCore> not mounted on DragStart!"` This is due to the ref being present but not attached to any node.
 
 ### 1.11.1 (Mar 5, 2021)
 

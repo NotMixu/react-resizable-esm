@@ -29,17 +29,14 @@ React-Resizable 2.x has been skipped.
 
 This package has two major exports:
 
-* [`<Resizable>`](/lib/Resizable.js): A raw component that does not have state. Use as a building block for larger components, by listening to its
+- [`<Resizable>`](/lib/Resizable.js): A raw component that does not have state. Use as a building block for larger components, by listening to its
   callbacks and setting its props.
-* [`<ResizableBox>`](/lib/ResizableBox.js): A simple `<div {...props} />` element that manages basic state. Convenient for simple use-cases.
-
+- [`<ResizableBox>`](/lib/ResizableBox.js): A simple `<div {...props} />` element that manages basic state. Convenient for simple use-cases.
 
 #### `<Resizable>`
-```js
-const {Resizable} = require('react-resizable');
 
-// ES6
-import { Resizable } from 'react-resizable';
+```js
+import { Resizable } from "react-resizable";
 
 // ...
 class Example extends React.Component {
@@ -49,29 +46,35 @@ class Example extends React.Component {
   };
 
   // On top layout
-  onResize = (event, {node, size, handle}) => {
-    this.setState({width: size.width, height: size.height});
+  onResize = (event, { node, size, handle }) => {
+    this.setState({ width: size.width, height: size.height });
   };
 
   render() {
     return (
-      <Resizable height={this.state.height} width={this.state.width} onResize={this.onResize}>
-        <div className="box" style={{width: this.state.width + 'px', height: this.state.height + 'px'}}>
+      <Resizable
+        height={this.state.height}
+        width={this.state.width}
+        onResize={this.onResize}
+      >
+        <div
+          className="box"
+          style={{
+            width: this.state.width + "px",
+            height: this.state.height + "px",
+          }}
+        >
           <span>Contents</span>
         </div>
       </Resizable>
     );
   }
 }
-
 ```
 
-
 #### `<ResizableBox>`
-```js
-const {ResizableBox} = require('react-resizable');
 
-// ES6
+```js
 import { ResizableBox } from 'react-resizable';
 
 class Example extends React.Component {
@@ -154,24 +157,30 @@ You must [forward the ref](https://reactjs.org/docs/forwarding-refs.html) and pr
 ```js
 class MyHandleComponent extends React.Component {
   render() {
-    const {handleAxis, innerRef, ...props} = this.props;
-    return <div ref={innerRef} className={`foo handle-${handleAxis}`} {...props} />
+    const { handleAxis, innerRef, ...props } = this.props;
+    return (
+      <div ref={innerRef} className={`foo handle-${handleAxis}`} {...props} />
+    );
   }
 }
-const MyHandle = React.forwardRef((props, ref) => <MyHandleComponent innerRef={ref} {...props} />);
+const MyHandle = React.forwardRef((props, ref) => (
+  <MyHandleComponent innerRef={ref} {...props} />
+));
 
-<Resizable handle={<MyHandle />} />
+<Resizable handle={<MyHandle />} />;
 ```
 
 ###### Functional Components
 
 ```js
 const MyHandle = React.forwardRef((props, ref) => {
-  const {handleAxis, ...restProps} = props;
-  return <div ref={ref} className={`foo handle-${handleAxis}`} {...restProps} />;
+  const { handleAxis, ...restProps } = props;
+  return (
+    <div ref={ref} className={`foo handle-${handleAxis}`} {...restProps} />
+  );
 });
 
-<Resizable handle={<MyHandle />} />
+<Resizable handle={<MyHandle />} />;
 ```
 
 ##### Custom Function
@@ -183,5 +192,13 @@ const MyHandle = (props) => {
   return <div ref={props.innerRef} className="foo" {...props} />;
 };
 
-<Resizable handle={(handleAxis, ref) => <MyHandle innerRef={ref} className={`foo handle-${handleAxis}`} {...props} />} />
+<Resizable
+  handle={(handleAxis, ref) => (
+    <MyHandle
+      innerRef={ref}
+      className={`foo handle-${handleAxis}`}
+      {...props}
+    />
+  )}
+/>;
 ```

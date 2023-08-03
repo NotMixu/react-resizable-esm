@@ -1,6 +1,7 @@
 {
-  "name": "react-resizable",
-  "version": "3.0.5",
+  "name": "react-resizable-esm",
+  "type": "module",
+  "version": "4.0.0",
   "description": "A component that is resizable with handles.",
   "main": "index.js",
   "scripts": {
@@ -19,19 +20,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:react-grid-layout/react-resizable.git"
+    "url": "git@github.com:NotMixu/react-resizable-esm.git"
   },
   "keywords": [
     "react",
     "resize",
     "resizable"
   ],
-  "author": "Samuel Reed <samuel.trace.reed@gmail.com> (http://strml.net/)",
+  "author": "NotMixu <not@mixu.dev>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/react-grid-layout/react-resizable/issues"
+    "url": "https://github.com/NotMixu/react-resizable-esm/issues"
   },
-  "homepage": "https://github.com/react-grid-layout/react-resizable",
+  "homepage": "https://github.com/NotMixu/react-resizable-esm",
   "devDependencies": {
     "@babel/cli": "^7.21.0",
     "@babel/core": "^7.21.3",
